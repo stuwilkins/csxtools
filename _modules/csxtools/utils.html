@@ -85,6 +85,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../fastccd.html">FastCCD Routines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../utils.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../ipynb.html">IPython Notebook Routines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Fe55 Tests.html">Single Photon Counting with FastCCD</a></li>
 </ul>
 </ul>
 </li>
@@ -123,18 +124,7 @@
 
 <div class="container">
   <div class="row">
-      <div class="col-md-3">
-        <div id="sidebar" class="bs-sidenav" role="complementary">
-<form action="../../search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-        </div>
-      </div>
-    <div class="col-md-9">
+    <div class="col-md-12">
       
   <h1>Source code for csxtools.utils</h1><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
@@ -143,7 +133,7 @@
 <span class="kn">from</span> <span class="nn">.image</span> <span class="kn">import</span> <span class="n">rotate90</span>
 
 
-<div class="viewcode-block" id="get_fastccd_images"><a class="viewcode-back" href="../../csxtools/docs/source/utils.html#csxtools.utils.get_fastccd_images">[docs]</a><span class="k">def</span> <span class="nf">get_fastccd_images</span><span class="p">(</span><span class="n">light_header</span><span class="p">,</span> <span class="n">dark_headers</span><span class="o">=</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span>
+<div class="viewcode-block" id="get_fastccd_images"><a class="viewcode-back" href="../../utils.html#csxtools.utils.get_fastccd_images">[docs]</a><span class="k">def</span> <span class="nf">get_fastccd_images</span><span class="p">(</span><span class="n">light_header</span><span class="p">,</span> <span class="n">dark_headers</span><span class="o">=</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span>
                        <span class="n">flat</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">tag</span><span class="o">=</span><span class="s">&#39;fccd_image_lightfield&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Retreive and correct FastCCD Images from associated headers</span>
 

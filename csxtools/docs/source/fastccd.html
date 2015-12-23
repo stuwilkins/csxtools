@@ -84,6 +84,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../fastccd.html">FastCCD Routines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../ipynb.html">IPython Notebook Routines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Fe55 Tests.html">Single Photon Counting with FastCCD</a></li>
 </ul>
 </ul>
 </li>
@@ -128,28 +129,7 @@
 
 <div class="container">
   <div class="row">
-      <div class="col-md-3">
-        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
-<li><a class="reference internal" href="#">FastCCD Routines</a><ul>
-<li><a class="reference internal" href="#module-csxtools.fastccd">API Reference</a></li>
-</ul>
-</li>
-</ul>
-
-<div id="sourcelink">
-  <a href="../../../_sources/csxtools/docs/source/fastccd.txt"
-     rel="nofollow">Source</a>
-</div>
-<form action="../../../search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-        </div>
-      </div>
-    <div class="col-md-9">
+    <div class="col-md-12">
       
   <div class="section" id="fastccd-routines">
 <h1>FastCCD Routines<a class="headerlink" href="#fastccd-routines" title="Permalink to this headline">¶</a></h1>
@@ -190,7 +170,7 @@ gain settings</li>
 
 <dl class="function">
 <dt id="csxtools.fastccd.photon_count">
-<code class="descclassname">csxtools.fastccd.</code><code class="descname">photon_count</code><span class="sig-paren">(</span><em>data</em>, <em>thresh</em>, <em>nsum=3</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/csxtools/fastccd/phocount.html#photon_count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csxtools.fastccd.photon_count" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">csxtools.fastccd.</code><code class="descname">photon_count</code><span class="sig-paren">(</span><em>data</em>, <em>thresh</em>, <em>nsum=3</em>, <em>nan=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/csxtools/fastccd/phocount.html#photon_count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csxtools.fastccd.photon_count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Do single photon counting on CCD image</p>
 <p>This routine does single photon counting by cluster analysis. The image
 is searched for bright pixels within a threshold and then the energy
@@ -206,6 +186,7 @@ N is the number of images</li>
 (min, max)</li>
 <li><strong>nsum</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The number of pixels to use to calculate the energy deposited by the
 photon. This should be 0 &lt; nsum &lt;= 9.</li>
+<li><strong>nan</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; If true, replace empty pixels with <code class="docutils literal"><span class="pre">np.nan</span></code></li>
 </ul>
 </td>
 </tr>
