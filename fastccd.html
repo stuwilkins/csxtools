@@ -170,11 +170,37 @@ gain settings</li>
 </dd></dl>
 
 <dl class="function">
-<dt id="csxtools.fastccd.phocount">
-<code class="descclassname">csxtools.fastccd.</code><code class="descname">phocount</code><span class="sig-paren">(</span><em>data</em>, <em>thresh</em>, <em>nsum=3</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csxtools/fastccd/phocount.html#phocount"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csxtools.fastccd.phocount" title="Permalink to this definition">¶</a></dt>
+<dt id="csxtools.fastccd.photon_count">
+<code class="descclassname">csxtools.fastccd.</code><code class="descname">photon_count</code><span class="sig-paren">(</span><em>data</em>, <em>thresh</em>, <em>nsum=3</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csxtools/fastccd/phocount.html#photon_count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csxtools.fastccd.photon_count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Do single photon counting on CCD image</p>
 <p>This routine does single photon counting by cluster analysis. The image
-is searched for bright pixels within a threshold</p>
+is searched for bright pixels within a threshold and then the energy
+deposited by each photon is calculated.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data</strong> (<em>array_like</em>) &#8211; Stack of CCD images. This array should be of shape (N, y, x) where
+N is the number of images</li>
+<li><strong>thresh</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; Threshold to use for identifying photons. This should be a tuple of
+(min, max)</li>
+<li><strong>nsum</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The number of pixels to use to calculate the energy deposited by the
+photon. This should be 0 &lt; nsum &lt;= 9.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Two arrays are returned. The first is an array of size (N, y, x)
+where the elements are the integrated energy calculated for each
+photon hit. The second array is the standard deviation for the
+integrated intensity on each photon hit.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
