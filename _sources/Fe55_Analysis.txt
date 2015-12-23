@@ -103,7 +103,7 @@ Check the data
 
 
 
-.. image:: Fe55%20Tests_files/Fe55%20Tests_7_1.png
+.. image:: Fe55_Analysis_files/Fe55_Analysis_7_1.png
 
 
 .. code:: python
@@ -133,7 +133,7 @@ Check the data
 
 
 
-.. image:: Fe55%20Tests_files/Fe55%20Tests_9_1.png
+.. image:: Fe55_Analysis_files/Fe55_Analysis_9_1.png
 
 
 Run a loop to generate data for diferent ESUM
@@ -152,7 +152,7 @@ Plot a histogram of integrated ADUs
 
 
 
-.. image:: Fe55%20Tests_files/Fe55%20Tests_13_0.png
+.. image:: Fe55_Analysis_files/Fe55_Analysis_13_0.png
 
 
 Flatfield Correction
@@ -199,7 +199,7 @@ Now generate a flatfield correction based on the mean per column
 
 
 
-.. image:: Fe55%20Tests_files/Fe55%20Tests_16_1.png
+.. image:: Fe55_Analysis_files/Fe55_Analysis_16_1.png
 
 
 .. code:: python
@@ -233,7 +233,7 @@ Now generate a flatfield correction based on the mean per column
 
 
 
-.. image:: Fe55%20Tests_files/Fe55%20Tests_19_1.png
+.. image:: Fe55_Analysis_files/Fe55_Analysis_19_1.png
 
 
 .. code:: python
@@ -246,6 +246,6 @@ Now generate a flatfield correction based on the mean per column
 
 
 
-.. image:: Fe55%20Tests_files/Fe55%20Tests_21_0.png
+.. image:: Fe55_Analysis_files/Fe55_Analysis_21_0.png
 
 
