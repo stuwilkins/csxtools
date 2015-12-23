@@ -34,7 +34,7 @@ Contents
    fastccd
    utils
    ipynb
-   Fe55_Analysis
+   notebooks/index
 
 .. _slack:  https://slack.com
 .. _support: https://csxnsls-ii.slack.com/messages/support
