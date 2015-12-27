@@ -15,6 +15,7 @@ First some imports, using csxtools
     plt.style.use('sbwnotebook')
     
     from csxtools.fastccd import phocount
+    from csxtools import make_panel_plot
     import timeit
 
 Function definitions
@@ -27,7 +28,7 @@ Function definitions
         histograms = []
     
         for n in range(1, 9):
-            c = phocount.photon_count(data, (90,150), n, True)
+            c = phocount.photon_count(data, (75,125), n, True)
             h = np.histogram(c[0], bins=100, range=(50, 350))
             results.append(c[0].ravel())
             histograms.append(h[0]) 
@@ -98,7 +99,7 @@ Check the data
 
 .. parsed-literal::
 
-    <matplotlib.text.Text at 0x7f20d87aceb8>
+    <matplotlib.text.Text at 0x7fd38824fac8>
 
 
 
@@ -114,7 +115,7 @@ Check the data
 
 .. parsed-literal::
 
-    Photon counting array of (660, 238, 960) takes 0.36854689973406496 seconds
+    Photon counting array of (660, 238, 960) takes 0.3954857678618282 seconds
 
 
 .. code:: python
@@ -128,7 +129,7 @@ Check the data
 
 .. parsed-literal::
 
-    [<matplotlib.lines.Line2D at 0x7f279d2edcc0>]
+    [<matplotlib.lines.Line2D at 0x7fd369567cc0>]
 
 
 
@@ -158,94 +159,47 @@ Plot a histogram of integrated ADUs
 Flatfield Correction
 --------------------
 
-Now generate a flatfield correction based on the mean per column
+Now generate a flatfield correction based on the mean per column.
 
 .. code:: python
 
-    c = phocount.photon_count(data, (150,250), 3, True)
-    ff = np.nanmean(c[0], axis=0)
-    ff = np.nanmean(ff, axis=0)
-    print(ff.shape)
-    #ff[9::10] = np.nan # Remove bad col 9
-
-
-.. parsed-literal::
-
-    (960,)
+    c = phocount.photon_count(data.astype(np.float32), (150,250), 3, True)
+    inti = c[0]
+    #inti[:,:,0::10] = np.nan
+    #inti[:,:,9::10] = np.nan
+    ff = np.nanmean(inti, axis=(0,1))
+    ffstd = np.nanstd(inti, axis=(0,1))
+    ffn = np.nansum(inti, axis=(0,1))
 
 
 .. parsed-literal::
 
     /GPFS/xf23id/users/swilkins/miniconda3/envs/analysis/lib/python3.5/site-packages/numpy/lib/nanfunctions.py:598: RuntimeWarning: Mean of empty slice
       warnings.warn("Mean of empty slice", RuntimeWarning)
-    /GPFS/xf23id/users/swilkins/miniconda3/envs/analysis/lib/python3.5/site-packages/numpy/lib/nanfunctions.py:598: RuntimeWarning: Mean of empty slice
-      warnings.warn("Mean of empty slice", RuntimeWarning)
+    /GPFS/xf23id/users/swilkins/miniconda3/envs/analysis/lib/python3.5/site-packages/numpy/lib/nanfunctions.py:1057: RuntimeWarning: Degrees of freedom <= 0 for slice.
+      warnings.warn("Degrees of freedom <= 0 for slice.", RuntimeWarning)
 
 
 .. code:: python
 
-    fig, ax = plt.subplots()
-    ax.plot(ff, 'ro')
-    ax.set_xlabel('Column')
-    ax.set_ylabel('Average')
+    fig = plt.figure(figsize=(18,18))
+    ax = make_panel_plot(n=3, fig=fig)
+    
+    ax[2].plot(ff, 'r-')
+    ax[1].plot(ffn, 'k-')
+    ax[0].plot(ffstd, 'b-')
+    
+    ax[2].set_ylabel(r'$\leftangle I \rightangle$ [ADU]')
+    ax[2].set_title('Results by column ')
+    ax[1].set_ylabel('n [photons]')
+    ax[0].set_ylabel('$\sigma (I)$')
+    ax[0].set_xlabel('Column')
+    
+    for a in ax:
+        a.set_xlim((0,960))
 
 
 
-
-.. parsed-literal::
-
-    <matplotlib.text.Text at 0x7f279d625240>
-
-
-
-
-.. image:: Fe55_Single_Photon_Counting_files/Fe55_Single_Photon_Counting_16_1.png
-
-
-.. code:: python
-
-    print('Standard deviation of column data is {}'.format(np.nanstd(ff)))
-
-
-.. parsed-literal::
-
-    Standard deviation of column data is 12.175363540649414
-
-
-.. code:: python
-
-    ffcols = np.nanmean(ff.reshape((10,-1)), axis=0)
-    ffcols = (np.ones((10,96), dtype=np.float32) * ffcols).T.ravel()
-    ffcols = ffcols / np.nanmean(ffcols)
-
-.. code:: python
-
-    fig, ax = plt.subplots()
-    ax.plot(ffcols)
-
-
-
-
-.. parsed-literal::
-
-    [<matplotlib.lines.Line2D at 0x7f20d879def0>]
-
-
-
-
-.. image:: Fe55_Single_Photon_Counting_files/Fe55_Single_Photon_Counting_19_1.png
-
-
-.. code:: python
-
-    results, hist_x, histograms = get_photons(data / ffcols)
-
-.. code:: python
-
-    plot_results(results, hist_x, histograms)
-
-
-
-.. image:: Fe55_Single_Photon_Counting_files/Fe55_Single_Photon_Counting_21_0.png
+.. image:: Fe55_Single_Photon_Counting_files/Fe55_Single_Photon_Counting_16_0.png
 
 
