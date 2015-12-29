@@ -28,7 +28,7 @@ Function definitions
         histograms = []
     
         for n in range(1, 9):
-            c = phocount.photon_count(data, (75,125), n, True)
+            c = phocount.photon_count(data, (75,250), (0, 500), n, True)
             h = np.histogram(c[0], bins=100, range=(50, 350))
             results.append(c[0].ravel())
             histograms.append(h[0]) 
@@ -75,7 +75,6 @@ Using test data from:
     data = np.array(data)
     # Only take half the CCD
     data = data[:,240:,:]
-    data[:,:,9::10] = np.nan
     print(data.shape)
 
 
@@ -99,7 +98,7 @@ Check the data
 
 .. parsed-literal::
 
-    <matplotlib.text.Text at 0x7fd38824fac8>
+    <matplotlib.text.Text at 0x7fcca0ae94e0>
 
 
 
@@ -109,13 +108,13 @@ Check the data
 
 .. code:: python
 
-    t = timeit.timeit('phocount.photon_count(data, (150,250), 3)', globals=globals(), number=10)
-    print("Photon counting array of {} takes {} seconds".format(data.shape, t / 10))
+    t = timeit.timeit('phocount.photon_count(data, (150,250), (0, 300), 3)', globals=globals(), number=25)
+    print("Photon counting array of {} takes {:.3} seconds".format(data.shape, t / 25))
 
 
 .. parsed-literal::
 
-    Photon counting array of (660, 238, 960) takes 0.3954857678618282 seconds
+    Photon counting array of (660, 238, 960) takes 0.398 seconds
 
 
 .. code:: python
@@ -129,7 +128,7 @@ Check the data
 
 .. parsed-literal::
 
-    [<matplotlib.lines.Line2D at 0x7fd369567cc0>]
+    [<matplotlib.lines.Line2D at 0x7fcc94394c50>]
 
 
 
@@ -163,7 +162,7 @@ Now generate a flatfield correction based on the mean per column.
 
 .. code:: python
 
-    c = phocount.photon_count(data.astype(np.float32), (150,250), 3, True)
+    c = phocount.photon_count(data.astype(np.float32), (75,250), (170, 230), 3, True)
     inti = c[0]
     #inti[:,:,0::10] = np.nan
     #inti[:,:,9::10] = np.nan
@@ -185,9 +184,9 @@ Now generate a flatfield correction based on the mean per column.
     fig = plt.figure(figsize=(18,18))
     ax = make_panel_plot(n=3, fig=fig)
     
-    ax[2].plot(ff, 'r-')
-    ax[1].plot(ffn, 'k-')
-    ax[0].plot(ffstd, 'b-')
+    ax[2].plot(ff, 'r*-')
+    ax[1].plot(ffn, 'ks-')
+    ax[0].plot(ffstd, 'b+-')
     
     ax[2].set_ylabel(r'$\leftangle I \rightangle$ [ADU]')
     ax[2].set_title('Results by column ')
