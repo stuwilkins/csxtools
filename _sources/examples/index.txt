@@ -6,6 +6,7 @@ Contents
 
 .. toctree::
    :maxdepth: 2
+   :glob:
 
-   Correct_FastCCD_Images
+   *
 
