@@ -52,63 +52,63 @@ Load the headers without the images (using ``fill=False``)
       
       EventDescriptor
       ---------------
-      +-----------------------+--------+------------+------------------+--------------------------------------------+
-      | data keys             | dtype  |  external  |      shape       |                   source                   |
-      +-----------------------+--------+------------+------------------+--------------------------------------------+
-      | delta                 | number |            |        []        |     PV:XF:23ID1-ES{Dif-Ax:Del}Mtr.RBV      |
-      | epu1_gap              | number |            |        []        |      PV:XF:23ID-ID{EPU:1-Ax:Gap}Pos-I      |
-      | epu1_phase            | number |            |        []        |     PV:XF:23ID-ID{EPU:1-Ax:Phase}Pos-I     |
-      | epu2_gap              | number |            |        []        |      PV:XF:23ID-ID{EPU:2-Ax:Gap}Pos-I      |
-      | epu2_phase            | number |            |        []        |     PV:XF:23ID-ID{EPU:2-Ax:Phase}Pos-I     |
-      | eta                   | number |            |        []        |    PV:XF:23ID1-ES{Diag:1-Ax:Eta}Mtr.RBV    |
-      | fccd_acquire_period   | number |            |        []        | PV:XF:23ID1-ES{FCCD}cam1:AcquirePeriod_RBV |
-      | fccd_acquire_time     | number |            |        []        |  PV:XF:23ID1-ES{FCCD}cam1:AcquireTime_RBV  |
-      | fccd_image_lightfield | array  | FILESTORE: | [1200, 960, 960] |            PV:XF:23ID1-ES{FCCD}            |
-      | fccd_stats_total1     | number |            |        []        |    PV:XF:23ID1-ES{FCCD}Stats1:Total_RBV    |
-      | fccd_stats_total2     | number |            |        []        |    PV:XF:23ID1-ES{FCCD}Stats2:Total_RBV    |
-      | fccd_stats_total3     | number |            |        []        |    PV:XF:23ID1-ES{FCCD}Stats3:Total_RBV    |
-      | fccd_stats_total4     | number |            |        []        |    PV:XF:23ID1-ES{FCCD}Stats4:Total_RBV    |
-      | fccd_stats_total5     | number |            |        []        |    PV:XF:23ID1-ES{FCCD}Stats5:Total_RBV    |
-      | gamma                 | number |            |        []        |     PV:XF:23ID1-ES{Dif-Ax:Gam}Mtr.RBV      |
-      | npbx                  | number |            |        []        |  PV:XF:23ID1-ES{Dif:Lens-Ax:BtmX}Mtr.RBV   |
-      | npby                  | number |            |        []        |  PV:XF:23ID1-ES{Dif:Lens-Ax:BtmY}Mtr.RBV   |
-      | npbz                  | number |            |        []        |  PV:XF:23ID1-ES{Dif:Lens-Ax:BtmZ}Mtr.RBV   |
-      | nptx                  | number |            |        []        |  PV:XF:23ID1-ES{Dif:Lens-Ax:TopX}Mtr.RBV   |
-      | npty                  | number |            |        []        |  PV:XF:23ID1-ES{Dif:Lens-Ax:TopY}Mtr.RBV   |
-      | nptz                  | number |            |        []        |  PV:XF:23ID1-ES{Dif:Lens-Ax:TopZ}Mtr.RBV   |
-      | pgm_energy            | number |            |        []        |        PV:XF:23ID1-OP{Mono}Enrgy-I         |
-      | ring_curr             | number |            |        []        |             PV:XF:23ID-SR{}I-I             |
-      | say                   | number |            |        []        |      PV:XF:23ID1-ES{Dif-Ax:Y}Mtr.RBV       |
-      | saz                   | number |            |        []        |      PV:XF:23ID1-ES{Dif-Ax:Z}Mtr.RBV       |
-      | sclr_chan1            | number |            |        []        |         PV:XF:23ID1-ES{Sclr:1}.S1          |
-      | sclr_chan2            | number |            |        []        |         PV:XF:23ID1-ES{Sclr:1}.S2          |
-      | sclr_chan3            | number |            |        []        |         PV:XF:23ID1-ES{Sclr:1}.S3          |
-      | sclr_chan4            | number |            |        []        |         PV:XF:23ID1-ES{Sclr:1}.S4          |
-      | sclr_chan5            | number |            |        []        |         PV:XF:23ID1-ES{Sclr:1}.S5          |
-      | sclr_chan6            | number |            |        []        |         PV:XF:23ID1-ES{Sclr:1}.S6          |
-      | sclr_chan7            | number |            |        []        |         PV:XF:23ID1-ES{Sclr:1}.S7          |
-      | sclr_chan8            | number |            |        []        |         PV:XF:23ID1-ES{Sclr:1}.S8          |
-      | sclr_time             | number |            |        []        |          PV:XF:23ID1-ES{Sclr:1}.T          |
-      | slt1_xc               | number |            |        []        |    PV:XF:23ID1-OP{Slt:1-Ax:XCtr}Mtr.RBV    |
-      | slt1_xg               | number |            |        []        |    PV:XF:23ID1-OP{Slt:1-Ax:XGap}Mtr.RBV    |
-      | slt1_yc               | number |            |        []        |    PV:XF:23ID1-OP{Slt:1-Ax:YCtr}Mtr.RBV    |
-      | slt1_yg               | number |            |        []        |    PV:XF:23ID1-OP{Slt:1-Ax:YGap}Mtr.RBV    |
-      | slt2_xc               | number |            |        []        |    PV:XF:23ID1-OP{Slt:2-Ax:XCtr}Mtr.RBV    |
-      | slt2_xg               | number |            |        []        |    PV:XF:23ID1-OP{Slt:2-Ax:XGap}Mtr.RBV    |
-      | slt2_yc               | number |            |        []        |    PV:XF:23ID1-OP{Slt:2-Ax:YCtr}Mtr.RBV    |
-      | slt2_yg               | number |            |        []        |    PV:XF:23ID1-OP{Slt:2-Ax:YGap}Mtr.RBV    |
-      | slt3_x                | number |            |        []        |     PV:XF:23ID1-OP{Slt:3-Ax:X}Mtr.RBV      |
-      | slt3_y                | number |            |        []        |     PV:XF:23ID1-OP{Slt:3-Ax:Y}Mtr.RBV      |
-      | sx                    | number |            |        []        |      PV:XF:23ID1-ES{Dif-Ax:X}Mtr.RBV       |
-      | sy                    | number |            |        []        |      PV:XF:23ID1-ES{Dif-Ax:SY}Pos-RB       |
-      | sz                    | number |            |        []        |      PV:XF:23ID1-ES{Dif-Ax:SZ}Pos-RB       |
-      | temp_a                | number |            |        []        |     PV:XF:23ID1-ES{TCtrl:1-Chan:A}T-I      |
-      | temp_b                | number |            |        []        |     PV:XF:23ID1-ES{TCtrl:1-Chan:B}T-I      |
-      | theta                 | number |            |        []        |      PV:XF:23ID1-ES{Dif-Ax:Th}Mtr.RBV      |
-      +-----------------------+--------+------------+------------------+--------------------------------------------+
+      +-----------------------+--------+------------+-------+----------------------------------+
+      | data keys             | dtype  |  external  | shape |              source              |
+      +-----------------------+--------+------------+-------+----------------------------------+
+      | delta                 | number |            |   []  |    XF:23ID1-ES{Dif-Ax:Del}Mtr    |
+      | epu1_gap              | number |            |   []  |  XF:23ID-ID{EPU:1-Ax:Gap}Pos-SP  |
+      | epu1_phase            | number |            |   []  | XF:23ID-ID{EPU:1-Ax:Phase}Pos-SP |
+      | epu2_gap              | number |            |   []  |  XF:23ID-ID{EPU:2-Ax:Gap}Pos-SP  |
+      | epu2_phase            | number |            |   []  | XF:23ID-ID{EPU:2-Ax:Phase}Pos-SP |
+      | eta                   | number |            |   []  |  XF:23ID1-ES{Diag:1-Ax:Eta}Mtr   |
+      | fccd_acquire_period   | number |            |   []  | XF:23ID1-ES{FCCD}:AcquirePeriod  |
+      | fccd_acquire_time     | number |            |   []  |  XF:23ID1-ES{FCCD}:AcquireTime   |
+      | fccd_image_lightfield | array  | FILESTORE: |   []  |                                  |
+      | fccd_stats_total1     | number |            |   []  |  XF:23ID1-ES{FCCD}:TOTAL_RBC.S1  |
+      | fccd_stats_total2     | number |            |   []  |  XF:23ID1-ES{FCCD}:TOTAL_RBC.S2  |
+      | fccd_stats_total3     | number |            |   []  |  XF:23ID1-ES{FCCD}:TOTAL_RBC.S3  |
+      | fccd_stats_total4     | number |            |   []  |  XF:23ID1-ES{FCCD}:TOTAL_RBC.S4  |
+      | fccd_stats_total5     | number |            |   []  |  XF:23ID1-ES{FCCD}:TOTAL_RBC.S5  |
+      | gamma                 | number |            |   []  |    XF:23ID1-ES{Dif-Ax:Gam}Mtr    |
+      | npbx                  | number |            |   []  | XF:23ID1-ES{Dif:Lens-Ax:BtmX}Mtr |
+      | npby                  | number |            |   []  | XF:23ID1-ES{Dif:Lens-Ax:BtmY}Mtr |
+      | npbz                  | number |            |   []  | XF:23ID1-ES{Dif:Lens-Ax:BtmZ}Mtr |
+      | nptx                  | number |            |   []  | XF:23ID1-ES{Dif:Lens-Ax:TopX}Mtr |
+      | npty                  | number |            |   []  | XF:23ID1-ES{Dif:Lens-Ax:TopY}Mtr |
+      | nptz                  | number |            |   []  | XF:23ID1-ES{Dif:Lens-Ax:TopZ}Mtr |
+      | pgm_energy            | number |            |   []  |    XF:23ID1-OP{Mono}Enrgy-SP     |
+      | ring_curr             | number |            |   []  |         XF:23ID-SR{}I-I          |
+      | say                   | number |            |   []  |     XF:23ID1-ES{Dif-Ax:Y}Mtr     |
+      | saz                   | number |            |   []  |     XF:23ID1-ES{Dif-Ax:Z}Mtr     |
+      | sclr_chan1            | number |            |   []  |      XF:23ID1-ES{Sclr:1}.S1      |
+      | sclr_chan2            | number |            |   []  |      XF:23ID1-ES{Sclr:1}.S2      |
+      | sclr_chan3            | number |            |   []  |      XF:23ID1-ES{Sclr:1}.S3      |
+      | sclr_chan4            | number |            |   []  |      XF:23ID1-ES{Sclr:1}.S4      |
+      | sclr_chan5            | number |            |   []  |      XF:23ID1-ES{Sclr:1}.S5      |
+      | sclr_chan6            | number |            |   []  |      XF:23ID1-ES{Sclr:1}.S6      |
+      | sclr_chan7            | number |            |   []  |      XF:23ID1-ES{Sclr:1}.S7      |
+      | sclr_chan8            | number |            |   []  |      XF:23ID1-ES{Sclr:1}.S8      |
+      | sclr_time             | number |            |   []  |      XF:23ID1-ES{Sclr:1}.T       |
+      | slt1_xc               | number |            |   []  |  XF:23ID1-OP{Slt:1-Ax:XCtr}Mtr   |
+      | slt1_xg               | number |            |   []  |  XF:23ID1-OP{Slt:1-Ax:XGap}Mtr   |
+      | slt1_yc               | number |            |   []  |  XF:23ID1-OP{Slt:1-Ax:YCtr}Mtr   |
+      | slt1_yg               | number |            |   []  |  XF:23ID1-OP{Slt:1-Ax:YGap}Mtr   |
+      | slt2_xc               | number |            |   []  |  XF:23ID1-OP{Slt:2-Ax:XCtr}Mtr   |
+      | slt2_xg               | number |            |   []  |  XF:23ID1-OP{Slt:2-Ax:XGap}Mtr   |
+      | slt2_yc               | number |            |   []  |  XF:23ID1-OP{Slt:2-Ax:YCtr}Mtr   |
+      | slt2_yg               | number |            |   []  |  XF:23ID1-OP{Slt:2-Ax:YGap}Mtr   |
+      | slt3_x                | number |            |   []  |    XF:23ID1-OP{Slt:3-Ax:X}Mtr    |
+      | slt3_y                | number |            |   []  |    XF:23ID1-OP{Slt:3-Ax:Y}Mtr    |
+      | sx                    | number |            |   []  |     XF:23ID1-ES{Dif-Ax:X}Mtr     |
+      | sy                    | number |            |   []  |   XF:23ID1-ES{Dif-Ax:SY}Pos-SP   |
+      | sz                    | number |            |   []  |   XF:23ID1-ES{Dif-Ax:SZ}Pos-SP   |
+      | temp_a                | number |            |   []  |  XF:23ID1-ES{TCtrl:1-Chan:A}T-I  |
+      | temp_b                | number |            |   []  |  XF:23ID1-ES{TCtrl:1-Chan:B}T-I  |
+      | theta                 | number |            |   []  |    XF:23ID1-ES{Dif-Ax:Th}Mtr     |
+      +-----------------------+--------+------------+-------+----------------------------------+
       run_start       : ce5042b7-00ae-49ca-9b11-b10c5661aaaa    
-      time            : 1445472638.1676164                      
-      uid             : 29645582-4748-41e5-bd9b-95c22c122446    
+      time            : 1445472517.9860468                      
+      uid             : bb3bf4a1-f140-49db-ad43-f26ac8faf639    
       
       RunStart
       --------
@@ -146,52 +146,52 @@ Load the headers without the images (using ``fill=False``)
         <tr style="text-align: right;">
           <th></th>
           <th>time</th>
-          <th>slt1_yg</th>
-          <th>temp_a</th>
-          <th>delta</th>
+          <th>saz</th>
+          <th>sclr_chan2</th>
+          <th>sx</th>
           <th>slt2_yg</th>
-          <th>epu2_gap</th>
-          <th>slt2_yc</th>
-          <th>sclr_chan8</th>
-          <th>epu1_phase</th>
-          <th>npbx</th>
-          <th>...</th>
-          <th>sclr_chan6</th>
-          <th>sclr_chan5</th>
-          <th>slt1_yc</th>
-          <th>fccd_image_lightfield</th>
-          <th>eta</th>
-          <th>slt2_xc</th>
+          <th>sclr_chan4</th>
+          <th>temp_a</th>
+          <th>fccd_stats_total5</th>
           <th>sclr_chan7</th>
-          <th>sy</th>
-          <th>npbz</th>
-          <th>slt3_x</th>
+          <th>slt1_xg</th>
+          <th>...</th>
+          <th>slt1_xc</th>
+          <th>fccd_image_lightfield</th>
+          <th>sclr_chan8</th>
+          <th>fccd_stats_total3</th>
+          <th>slt1_yg</th>
+          <th>epu2_gap</th>
+          <th>temp_b</th>
+          <th>gamma</th>
+          <th>fccd_acquire_period</th>
+          <th>nptx</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th>1</th>
           <td>2015-10-22 00:10:38.185091-04:00</td>
-          <td>7.0003</td>
-          <td>0</td>
-          <td>38.999985</td>
+          <td>4.175332</td>
+          <td>424111</td>
+          <td>6.899999</td>
           <td>-1.776357e-15</td>
-          <td>31.020917</td>
-          <td>-5.0001</td>
+          <td>2122834</td>
           <td>0</td>
-          <td>-0.000045</td>
-          <td>-3.380105</td>
+          <td>3232285349</td>
+          <td>0</td>
+          <td>6.9994</td>
           <td>...</td>
-          <td>0</td>
-          <td>423651</td>
-          <td>-0.3004</td>
+          <td>0.2046</td>
           <td>7180b59d-5112-428e-b6a4-9bc8893220b0</td>
-          <td>-0.017207</td>
-          <td>1</td>
           <td>0</td>
-          <td>0.183002</td>
-          <td>-5.656265</td>
-          <td>11.26975</td>
+          <td>86706314</td>
+          <td>7.0003</td>
+          <td>31.020917</td>
+          <td>0</td>
+          <td>-1.000007</td>
+          <td>1</td>
+          <td>-1.79327</td>
         </tr>
       </tbody>
     </table>
@@ -221,52 +221,52 @@ Load the headers without the images (using ``fill=False``)
         <tr style="text-align: right;">
           <th></th>
           <th>time</th>
-          <th>slt1_yg</th>
-          <th>temp_a</th>
-          <th>delta</th>
+          <th>saz</th>
+          <th>sclr_chan2</th>
+          <th>sx</th>
           <th>slt2_yg</th>
-          <th>epu2_gap</th>
-          <th>slt2_yc</th>
-          <th>sclr_chan8</th>
-          <th>epu1_phase</th>
-          <th>npbx</th>
-          <th>...</th>
-          <th>sclr_chan6</th>
-          <th>sclr_chan5</th>
-          <th>slt1_yc</th>
-          <th>fccd_image_lightfield</th>
-          <th>eta</th>
-          <th>slt2_xc</th>
+          <th>sclr_chan4</th>
+          <th>temp_a</th>
+          <th>fccd_stats_total5</th>
           <th>sclr_chan7</th>
-          <th>sy</th>
-          <th>npbz</th>
-          <th>slt3_x</th>
+          <th>slt1_xg</th>
+          <th>...</th>
+          <th>slt1_xc</th>
+          <th>fccd_image_lightfield</th>
+          <th>sclr_chan8</th>
+          <th>fccd_stats_total3</th>
+          <th>slt1_yg</th>
+          <th>epu2_gap</th>
+          <th>temp_b</th>
+          <th>gamma</th>
+          <th>fccd_acquire_period</th>
+          <th>nptx</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th>1</th>
           <td>2015-10-21 23:59:54.531477-04:00</td>
-          <td>7.0003</td>
-          <td>0</td>
-          <td>38.999985</td>
+          <td>4.175332</td>
+          <td>424836</td>
+          <td>6.899999</td>
           <td>-1.776357e-15</td>
-          <td>31.020912</td>
-          <td>-5.0001</td>
+          <td>2128440</td>
           <td>0</td>
-          <td>-0.000045</td>
-          <td>-3.38011</td>
+          <td>3234474684</td>
+          <td>0</td>
+          <td>6.9994</td>
           <td>...</td>
-          <td>0</td>
-          <td>423638</td>
-          <td>-0.3004</td>
+          <td>0.2046</td>
           <td>20eed5d8-05e2-4b0e-bd3c-5edae7b15878</td>
-          <td>-0.017207</td>
-          <td>1</td>
           <td>0</td>
-          <td>0.183002</td>
-          <td>-5.65627</td>
-          <td>11.26979</td>
+          <td>86779381</td>
+          <td>7.0003</td>
+          <td>31.020912</td>
+          <td>0</td>
+          <td>-1.000007</td>
+          <td>1</td>
+          <td>-1.79326</td>
         </tr>
       </tbody>
     </table>
@@ -287,37 +287,23 @@ First lets just look at the background stack as a "lightfield"
 
 .. code:: python
 
-    bg_images = get_fastccd_images(bgnd)
+    images = get_fastccd_images(data, (bgnd, None, None), tag='fccd_image_lightfield')
 
 
 .. parsed-literal::
 
-    WARNING:csxtools.utils:Processing without dark images
-    INFO:csxtools.utils:Took 24.2s to read data using get_images
-    INFO:csxtools.fastccd.images:Correcting image stack of shape (1200, 960, 960)
+    INFO:csxtools.utils:Took 15.083 to read data using get_images
+    INFO:csxtools.fastccd.images:Correcting image stack of shape (1, 1200, 960, 960)
     INFO:csxtools.fastccd.images:Not correcting for darkfield. No input.
     INFO:csxtools.fastccd.images:Not correcting for flatfield. No input.
-    INFO:csxtools.fastccd.images:Corrected image stack in 0.683s
-
-
-.. code:: python
-
-    images = get_fastccd_images(data, (bgnd, None, None))
-
-
-.. parsed-literal::
-
-    INFO:csxtools.utils:Took 22.6s to read data using get_images
-    INFO:csxtools.fastccd.images:Correcting image stack of shape (1200, 960, 960)
-    INFO:csxtools.fastccd.images:Not correcting for darkfield. No input.
-    INFO:csxtools.fastccd.images:Not correcting for flatfield. No input.
-    INFO:csxtools.fastccd.images:Corrected image stack in 0.722s
+    INFO:csxtools.fastccd.images:Corrected image stack in 0.668
     WARNING:csxtools.utils:Missing dark image for gain setting 1
     WARNING:csxtools.utils:Missing dark image for gain setting 2
-    INFO:csxtools.utils:Took 22.1s to read data using get_images
-    INFO:csxtools.fastccd.images:Correcting image stack of shape (1200, 960, 960)
+    INFO:csxtools.utils:Computed dark images in 59.784
+    INFO:csxtools.utils:Took 9.062 to read data using get_images
+    INFO:csxtools.fastccd.images:Correcting image stack of shape (1, 1200, 960, 960)
     INFO:csxtools.fastccd.images:Not correcting for flatfield. No input.
-    INFO:csxtools.fastccd.images:Corrected image stack in 0.71s
+    INFO:csxtools.fastccd.images:Corrected image stack in 0.698
 
 
 Now lets do an interactive plotting widget!
@@ -327,11 +313,11 @@ Thanks ``ipywidgets``!
 
 .. code:: python
 
-    show_image_stack(images, (-100, 100))
+    show_image_stack(images[0], (-100, 100))
 
 
 
-.. image:: Correct_FastCCD_Images_files/Correct_FastCCD_Images_12_0.png
+.. image:: Correct_FastCCD_Images_files/Correct_FastCCD_Images_11_0.png
 
 
 And lets do a movie of the stack of images
@@ -341,7 +327,7 @@ This produces an HTML5 movie which can be viewed in most browsers
 
 .. code:: python
 
-    image_stack_to_movie(images, frames=10, figsize=(12, 10), vmin=-20, vmax=20)
+    image_stack_to_movie(images[0], frames=10, figsize=(12, 10), vmin=-20, vmax=20)
 
 
 
@@ -367,7 +353,7 @@ What version are we running?
 
 .. parsed-literal::
 
-    '0+untagged.205.g0de6573.dirty'
+    '0.1.0+2.g05d2a9b.dirty'
 
 
 

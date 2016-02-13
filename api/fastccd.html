@@ -84,7 +84,7 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">FastCCD Routines</a><ul>
-<li><a class="reference internal" href="#module-csxtools.fastccd">API Reference</a></li>
+<li><a class="reference internal" href="#api-reference">API Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -118,76 +118,8 @@
       
   <div class="section" id="fastccd-routines">
 <h1>FastCCD Routines<a class="headerlink" href="#fastccd-routines" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-csxtools.fastccd">
-<span id="api-reference"></span><h2>API Reference<a class="headerlink" href="#module-csxtools.fastccd" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="csxtools.fastccd.correct_images">
-<code class="descclassname">csxtools.fastccd.</code><code class="descname">correct_images</code><span class="sig-paren">(</span><em>images</em>, <em>dark=None</em>, <em>flat=None</em>, <em>gain=(1</em>, <em>4</em>, <em>8)</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/csxtools/fastccd/images.html#correct_images"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csxtools.fastccd.correct_images" title="Permalink to this definition">¶</a></dt>
-<dd><p>Subtract backgrond and gain correct images</p>
-<p>This routine subtrtacts the backgrond and corrects the images
-for the multigain FastCCD ADC.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>in</strong> (<em>array_like</em>) &#8211; Input array of images to correct of shape (N, y, x)  where N is the
-number of images and x and y are the image size.</li>
-<li><strong>dark</strong> (<em>array_like, optional</em>) &#8211; Input array of dark images. This should be of shape (3, y, x).
-dark[0] is the gain 8 (most sensitive setting) dark image with
-dark[2] being the gain 1 (least sensitive) dark image.</li>
-<li><strong>flat</strong> (<em>array_like, optional</em>) &#8211; Input array for the flatfield correction. This should be of shape
-(y, x)</li>
-<li><strong>gain</strong> (<em>tuple, optional</em>) &#8211; These are the gain multiplication factors for the three different
-gain settings</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Array of corrected images of shape (N, y, x)</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array_like</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="csxtools.fastccd.photon_count">
-<code class="descclassname">csxtools.fastccd.</code><code class="descname">photon_count</code><span class="sig-paren">(</span><em>data</em>, <em>thresh</em>, <em>nsum=3</em>, <em>nan=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/csxtools/fastccd/phocount.html#photon_count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csxtools.fastccd.photon_count" title="Permalink to this definition">¶</a></dt>
-<dd><p>Do single photon counting on CCD image</p>
-<p>This routine does single photon counting by cluster analysis. The image
-is searched for bright pixels within a threshold and then the energy
-deposited by each photon is calculated.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>data</strong> (<em>array_like</em>) &#8211; Stack of CCD images. This array should be of shape (N, y, x) where
-N is the number of images</li>
-<li><strong>thresh</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; Threshold to use for identifying photons. This should be a tuple of
-(min, max)</li>
-<li><strong>nsum</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The number of pixels to use to calculate the energy deposited by the
-photon. This should be 0 &lt; nsum &lt;= 9.</li>
-<li><strong>nan</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; If true, replace empty pixels with <code class="docutils literal"><span class="pre">np.nan</span></code></li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Two arrays are returned. The first is an array of size (N, y, x)
-where the elements are the integrated energy calculated for each
-photon hit. The second array is the standard deviation for the
-integrated intensity on each photon hit.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
+<div class="section" id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
