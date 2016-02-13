@@ -111,10 +111,7 @@
   <h1>Source code for csxtools.utils</h1><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">time</span> <span class="kn">as</span> <span class="nn">ttime</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">databroker</span> <span class="kn">import</span> <span class="n">get_images</span>
-<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">dataportal</span> <span class="kn">import</span> <span class="n">get_images</span>
+<span class="kn">from</span> <span class="nn">databroker</span> <span class="kn">import</span> <span class="n">get_images</span>
 
 <span class="kn">from</span> <span class="nn">.fastccd</span> <span class="kn">import</span> <span class="n">correct_images</span>
 <span class="kn">from</span> <span class="nn">.image</span> <span class="kn">import</span> <span class="n">rotate90</span>
@@ -124,7 +121,7 @@
 
 
 <div class="viewcode-block" id="get_fastccd_images"><a class="viewcode-back" href="../../api/utils.html#csxtools.utils.get_fastccd_images">[docs]</a><span class="k">def</span> <span class="nf">get_fastccd_images</span><span class="p">(</span><span class="n">light_header</span><span class="p">,</span> <span class="n">dark_headers</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                       <span class="n">flat</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">tag</span><span class="o">=</span><span class="s">&#39;fccd_image_lightfield&#39;</span><span class="p">):</span>
+                       <span class="n">flat</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">tag</span><span class="o">=</span><span class="s">&#39;fccd_image&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Retreive and correct FastCCD Images from associated headers</span>
 
 <span class="sd">    Retrieve FastCCD Images from databroker and correct for:</span>
@@ -160,8 +157,8 @@
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    np.array</span>
-<span class="sd">        Stack of corrected images</span>
+<span class="sd">    image : array_like</span>
+<span class="sd">        This is the corrected detector array</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -170,39 +167,38 @@
         <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;Processing without dark images&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">dark_headers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="bp">NotImplemented</span><span class="p">(</span><span class="s">&quot;Use of header metadata to find dark images is&quot;</span>
-                                 <span class="s">&quot;not implemented yet.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;Use of header metadata to find dark&quot;</span>
+                                      <span class="s">&quot; images is not implemented yet.&quot;</span><span class="p">)</span>
 
         <span class="c"># Read the images for the dark headers</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">ttime</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
         <span class="n">dark</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dark_headers</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">d</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
                 <span class="n">b</span> <span class="o">=</span> <span class="n">_get_images</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span>
-                <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">correct_images</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="n">correct_images</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;Missing dark image&quot;</span>
-                               <span class="s">&quot; for gain setting {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+                               <span class="s">&quot; for gain setting </span><span class="si">%d</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
             <span class="n">dark</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 
         <span class="n">bgnd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dark</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Computed dark images in </span><span class="si">%.3f</span><span class="s"> seconds&quot;</span><span class="p">,</span> <span class="n">ttime</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span>
 
     <span class="n">data</span> <span class="o">=</span> <span class="n">_get_images</span><span class="p">(</span><span class="n">light_header</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">correct_images</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bgnd</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="n">gain</span><span class="p">)</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">rotate90</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s">&#39;cw&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">data</span>
+    <span class="k">return</span> <span class="n">rotate90</span><span class="p">(</span><span class="n">correct_images</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bgnd</span><span class="p">,</span> <span class="n">flat</span><span class="o">=</span><span class="n">flat</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="n">gain</span><span class="p">),</span> <span class="s">&#39;cw&#39;</span><span class="p">)</span>
+
 </div>
 <span class="k">def</span> <span class="nf">_get_images</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">ttime</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-    <span class="n">images</span> <span class="o">=</span> <span class="n">get_images</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">tag</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">images</span> <span class="o">=</span> <span class="n">get_images</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">ttime</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Took {:.3}s to read data using get_images&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Took </span><span class="si">%.3f</span><span class="s"> seconds to read data using get_images&quot;</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
 
-    <span class="c"># Convert to uint16</span>
-
-    <span class="n">images</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">uint16</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">images</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint16</span><span class="p">)</span> <span class="k">for</span> <span class="n">im</span> <span class="ow">in</span> <span class="n">images</span><span class="p">])</span>
 </pre></div>
 
     </div>

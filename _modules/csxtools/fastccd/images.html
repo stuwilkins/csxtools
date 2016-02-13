@@ -111,6 +111,10 @@
   <h1>Source code for csxtools.fastccd.images</h1><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">..ext</span> <span class="kn">import</span> <span class="n">fastccd</span>
+<span class="kn">import</span> <span class="nn">time</span> <span class="kn">as</span> <span class="nn">ttime</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="correct_images"><a class="viewcode-back" href="../../../api/fastccd.html#csxtools.fastccd.correct_images">[docs]</a><span class="k">def</span> <span class="nf">correct_images</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">dark</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">flat</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">)):</span>
@@ -142,13 +146,25 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Correcting image stack of shape </span><span class="si">%s</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">images</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
     <span class="k">if</span> <span class="n">dark</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">dark</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">images</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
         <span class="n">dark</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">dark</span><span class="p">,</span> <span class="n">dark</span><span class="p">,</span> <span class="n">dark</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Not correcting for darkfield. No input.&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">flat</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">flat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">images</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Not correcting for flatfield. No input.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">flat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">flat</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">fastccd</span><span class="o">.</span><span class="n">correct_images</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">dark</span><span class="p">,</span> <span class="n">flat</span><span class="p">,</span> <span class="n">gain</span><span class="p">)</span></div>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">ttime</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">fastccd</span><span class="o">.</span><span class="n">correct_images</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">dark</span><span class="p">,</span> <span class="n">flat</span><span class="p">,</span> <span class="n">gain</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">ttime</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Corrected image stack in </span><span class="si">%.3f</span><span class="s"> seconds&quot;</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">data</span></div>
 </pre></div>
 
     </div>
