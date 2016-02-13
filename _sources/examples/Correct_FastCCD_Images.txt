@@ -119,9 +119,9 @@ Load the headers without the images (using ``fill=False``)
       project         :                                         
       sample          :
       scan_args       :
-        num             : 1                                       
         delay           : 0                                       
         detectors       : [EpicsMotor(name='theta', record='XF:23ID1-ES{Dif-Ax:Th}Mtr'), EpicsMotor(name='delta', record='XF:23ID1-ES{Dif-Ax:Del}Mtr'), EpicsMotor(name='gamma', record='XF:23ID1-ES{Dif-Ax:Gam}Mtr'), EpicsMotor(name='sx', record='XF:23ID1-ES{Dif-Ax:X}Mtr'), PVPositioner(name='sy', setpoint='XF:23ID1-ES{Dif-Ax:SY}Pos-SP', readback='XF:23ID1-ES{Dif-Ax:SY}Pos-RB', stop='XF:23ID1-ES{Dif-Cryo}Cmd:Stop-Cmd', stop_val=1, put_complete=True, settle_time=0.05, limits=(0, 0)), PVPositioner(name='sz', setpoint='XF:23ID1-ES{Dif-Ax:SZ}Pos-SP', readback='XF:23ID1-ES{Dif-Ax:SZ}Pos-RB', stop='XF:23ID1-ES{Dif-Cryo}Cmd:Stop-Cmd', stop_val=1, put_complete=True, settle_time=0.05, limits=(0, 0)), EpicsMotor(name='say', record='XF:23ID1-ES{Dif-Ax:Y}Mtr'), EpicsMotor(name='saz', record='XF:23ID1-ES{Dif-Ax:Z}Mtr'), EpicsSignal(name='temp_a', read_pv='XF:23ID1-ES{TCtrl:1-Chan:A}T-I', rw=False, string=False, limits=False, put_complete=False, pv_kw={}, auto_monitor=None), EpicsSignal(name='temp_b', read_pv='XF:23ID1-ES{TCtrl:1-Chan:B}T-I', rw=False, string=False, limits=False, put_complete=False, pv_kw={}, auto_monitor=None), PVPositioner(name='pgm_energy', setpoint='XF:23ID1-OP{Mono}Enrgy-SP', readback='XF:23ID1-OP{Mono}Enrgy-I', stop='XF:23ID1-OP{Mono}Cmd:Stop-Cmd', stop_val=1, put_complete=True, settle_time=0.05, limits=(200, 2200)), PVPositioner(name='epu1_gap', setpoint='XF:23ID-ID{EPU:1-Ax:Gap}Pos-SP', readback='XF:23ID-ID{EPU:1-Ax:Gap}Pos-I', stop='SR:C23-ID:G1A{EPU:1-Ax:Gap}-Mtr.STOP', stop_val=1, put_complete=True, settle_time=0.05, limits=(0, 0)), PVPositioner(name='epu1_phase', setpoint='XF:23ID-ID{EPU:1-Ax:Phase}Pos-SP', readback='XF:23ID-ID{EPU:1-Ax:Phase}Pos-I', stop='SR:C23-ID:G1A{EPU:1-Ax:Phase}-Mtr.STOP', stop_val=1, put_complete=True, settle_time=0.05, limits=(0, 0)), PVPositioner(name='epu2_gap', setpoint='XF:23ID-ID{EPU:2-Ax:Gap}Pos-SP', readback='XF:23ID-ID{EPU:2-Ax:Gap}Pos-I', stop='SR:C23-ID:G1A{EPU:2-Ax:Gap}-Mtr.STOP', stop_val=1, put_complete=True, settle_time=0.05, limits=(0, 0)), PVPositioner(name='epu2_phase', setpoint='XF:23ID-ID{EPU:2-Ax:Phase}Pos-SP', readback='XF:23ID-ID{EPU:2-Ax:Phase}Pos-I', stop='SR:C23-ID:G1A{EPU:2-Ax:Phase}-Mtr.STOP', stop_val=1, put_complete=True, settle_time=0.05, limits=(0, 0)), EpicsMotor(name='eta', record='XF:23ID1-ES{Diag:1-Ax:Eta}Mtr'), EpicsMotor(name='slt1_xc', record='XF:23ID1-OP{Slt:1-Ax:XCtr}Mtr'), EpicsMotor(name='slt1_xg', record='XF:23ID1-OP{Slt:1-Ax:XGap}Mtr'), EpicsMotor(name='slt1_yc', record='XF:23ID1-OP{Slt:1-Ax:YCtr}Mtr'), EpicsMotor(name='slt1_yg', record='XF:23ID1-OP{Slt:1-Ax:YGap}Mtr'), EpicsMotor(name='slt2_xc', record='XF:23ID1-OP{Slt:2-Ax:XCtr}Mtr'), EpicsMotor(name='slt2_xg', record='XF:23ID1-OP{Slt:2-Ax:XGap}Mtr'), EpicsMotor(name='slt2_yc', record='XF:23ID1-OP{Slt:2-Ax:YCtr}Mtr'), EpicsMotor(name='slt2_yg', record='XF:23ID1-OP{Slt:2-Ax:YGap}Mtr'), EpicsMotor(name='slt3_x', record='XF:23ID1-OP{Slt:3-Ax:X}Mtr'), EpicsMotor(name='slt3_y', record='XF:23ID1-OP{Slt:3-Ax:Y}Mtr'), EpicsSignal(name='ring_curr', read_pv='XF:23ID-SR{}I-I', rw=False, string=False, limits=False, put_complete=False, pv_kw={}, auto_monitor=None), EpicsMotor(name='npbx', record='XF:23ID1-ES{Dif:Lens-Ax:BtmX}Mtr'), EpicsMotor(name='npby', record='XF:23ID1-ES{Dif:Lens-Ax:BtmY}Mtr'), EpicsMotor(name='npbz', record='XF:23ID1-ES{Dif:Lens-Ax:BtmZ}Mtr'), EpicsMotor(name='nptx', record='XF:23ID1-ES{Dif:Lens-Ax:TopX}Mtr'), EpicsMotor(name='npty', record='XF:23ID1-ES{Dif:Lens-Ax:TopY}Mtr'), EpicsMotor(name='nptz', record='XF:23ID1-ES{Dif:Lens-Ax:TopZ}Mtr'), EpicsScaler(name='sclr', record='XF:23ID1-ES{Sclr:1}', numchan=8), AreaDetectorFileStoreHDF5(name='fccd', basename='XF:23ID1-ES{FCCD}', stats=[1, 2, 3, 4, 5], shutter=None, shutter_rb=None, shutter_val=None, file_path='/GPFS/xf23id/xf23id1/fccd_data/', ioc_file_path=None)]
+        num             : 1                                       
       scan_id         : 52440                                   
       scan_type       : Count                                   
       time            : 1445472516.9860468                      
@@ -146,52 +146,52 @@ Load the headers without the images (using ``fill=False``)
         <tr style="text-align: right;">
           <th></th>
           <th>time</th>
-          <th>saz</th>
-          <th>sclr_chan2</th>
-          <th>sx</th>
-          <th>slt2_yg</th>
           <th>sclr_chan4</th>
-          <th>temp_a</th>
-          <th>fccd_stats_total5</th>
-          <th>sclr_chan7</th>
-          <th>slt1_xg</th>
-          <th>...</th>
-          <th>slt1_xc</th>
-          <th>fccd_image_lightfield</th>
-          <th>sclr_chan8</th>
-          <th>fccd_stats_total3</th>
-          <th>slt1_yg</th>
           <th>epu2_gap</th>
-          <th>temp_b</th>
-          <th>gamma</th>
-          <th>fccd_acquire_period</th>
+          <th>delta</th>
+          <th>slt2_yc</th>
+          <th>sx</th>
+          <th>fccd_stats_total3</th>
+          <th>pgm_energy</th>
+          <th>temp_a</th>
+          <th>fccd_image_lightfield</th>
+          <th>...</th>
+          <th>sclr_chan8</th>
+          <th>npty</th>
+          <th>epu1_phase</th>
+          <th>slt2_yg</th>
+          <th>saz</th>
           <th>nptx</th>
+          <th>fccd_stats_total4</th>
+          <th>slt1_yc</th>
+          <th>ring_curr</th>
+          <th>sclr_chan7</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th>1</th>
           <td>2015-10-22 00:10:38.185091-04:00</td>
-          <td>4.175332</td>
-          <td>424111</td>
-          <td>6.899999</td>
-          <td>-1.776357e-15</td>
           <td>2122834</td>
-          <td>0</td>
-          <td>3232285349</td>
-          <td>0</td>
-          <td>6.9994</td>
-          <td>...</td>
-          <td>0.2046</td>
-          <td>7180b59d-5112-428e-b6a4-9bc8893220b0</td>
-          <td>0</td>
-          <td>86706314</td>
-          <td>7.0003</td>
           <td>31.020917</td>
+          <td>38.999985</td>
+          <td>-5.0001</td>
+          <td>6.899999</td>
+          <td>86706314</td>
+          <td>929.897551</td>
           <td>0</td>
-          <td>-1.000007</td>
-          <td>1</td>
+          <td>7180b59d-5112-428e-b6a4-9bc8893220b0</td>
+          <td>...</td>
+          <td>0</td>
+          <td>-26.662465</td>
+          <td>-0.000045</td>
+          <td>-1.776357e-15</td>
+          <td>4.175332</td>
           <td>-1.79327</td>
+          <td>50712759</td>
+          <td>-0.3004</td>
+          <td>150.056366</td>
+          <td>0</td>
         </tr>
       </tbody>
     </table>
@@ -221,52 +221,52 @@ Load the headers without the images (using ``fill=False``)
         <tr style="text-align: right;">
           <th></th>
           <th>time</th>
-          <th>saz</th>
-          <th>sclr_chan2</th>
-          <th>sx</th>
-          <th>slt2_yg</th>
           <th>sclr_chan4</th>
-          <th>temp_a</th>
-          <th>fccd_stats_total5</th>
-          <th>sclr_chan7</th>
-          <th>slt1_xg</th>
-          <th>...</th>
-          <th>slt1_xc</th>
-          <th>fccd_image_lightfield</th>
-          <th>sclr_chan8</th>
-          <th>fccd_stats_total3</th>
-          <th>slt1_yg</th>
           <th>epu2_gap</th>
-          <th>temp_b</th>
-          <th>gamma</th>
-          <th>fccd_acquire_period</th>
+          <th>delta</th>
+          <th>slt2_yc</th>
+          <th>sx</th>
+          <th>fccd_stats_total3</th>
+          <th>pgm_energy</th>
+          <th>temp_a</th>
+          <th>fccd_image_lightfield</th>
+          <th>...</th>
+          <th>sclr_chan8</th>
+          <th>npty</th>
+          <th>epu1_phase</th>
+          <th>slt2_yg</th>
+          <th>saz</th>
           <th>nptx</th>
+          <th>fccd_stats_total4</th>
+          <th>slt1_yc</th>
+          <th>ring_curr</th>
+          <th>sclr_chan7</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th>1</th>
           <td>2015-10-21 23:59:54.531477-04:00</td>
-          <td>4.175332</td>
-          <td>424836</td>
-          <td>6.899999</td>
-          <td>-1.776357e-15</td>
           <td>2128440</td>
-          <td>0</td>
-          <td>3234474684</td>
-          <td>0</td>
-          <td>6.9994</td>
-          <td>...</td>
-          <td>0.2046</td>
-          <td>20eed5d8-05e2-4b0e-bd3c-5edae7b15878</td>
-          <td>0</td>
-          <td>86779381</td>
-          <td>7.0003</td>
           <td>31.020912</td>
+          <td>38.999985</td>
+          <td>-5.0001</td>
+          <td>6.899999</td>
+          <td>86779381</td>
+          <td>929.879892</td>
           <td>0</td>
-          <td>-1.000007</td>
-          <td>1</td>
+          <td>20eed5d8-05e2-4b0e-bd3c-5edae7b15878</td>
+          <td>...</td>
+          <td>0</td>
+          <td>-26.66246</td>
+          <td>-0.000045</td>
+          <td>-1.776357e-15</td>
+          <td>4.175332</td>
           <td>-1.79326</td>
+          <td>50762635</td>
+          <td>-0.3004</td>
+          <td>150.018917</td>
+          <td>0</td>
         </tr>
       </tbody>
     </table>
@@ -292,18 +292,18 @@ First lets just look at the background stack as a "lightfield"
 
 .. parsed-literal::
 
-    INFO:csxtools.utils:Took 15.083 to read data using get_images
+    INFO:csxtools.utils:Took 5.603 seconds to read data using get_images
     INFO:csxtools.fastccd.images:Correcting image stack of shape (1, 1200, 960, 960)
     INFO:csxtools.fastccd.images:Not correcting for darkfield. No input.
     INFO:csxtools.fastccd.images:Not correcting for flatfield. No input.
-    INFO:csxtools.fastccd.images:Corrected image stack in 0.668
+    INFO:csxtools.fastccd.images:Corrected image stack in 0.717 seconds
     WARNING:csxtools.utils:Missing dark image for gain setting 1
     WARNING:csxtools.utils:Missing dark image for gain setting 2
-    INFO:csxtools.utils:Computed dark images in 59.784
-    INFO:csxtools.utils:Took 9.062 to read data using get_images
+    INFO:csxtools.utils:Computed dark images in 41.408 seconds
+    INFO:csxtools.utils:Took 8.737 seconds to read data using get_images
     INFO:csxtools.fastccd.images:Correcting image stack of shape (1, 1200, 960, 960)
     INFO:csxtools.fastccd.images:Not correcting for flatfield. No input.
-    INFO:csxtools.fastccd.images:Corrected image stack in 0.698
+    INFO:csxtools.fastccd.images:Corrected image stack in 0.733 seconds
 
 
 Now lets do an interactive plotting widget!
@@ -353,7 +353,7 @@ What version are we running?
 
 .. parsed-literal::
 
-    '0.1.0+2.g05d2a9b.dirty'
+    '0.1.0+3.g871beb3.dirty'
 
 
 

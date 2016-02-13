@@ -225,9 +225,9 @@ from matplotlib import pyplot as plt
   project         :
   sample          :
   scan_args       :
-    num             : 1
     delay           : 0
     detectors       : [EpicsMotor(name=&#39;theta&#39;, record=&#39;XF:23ID1-ES{Dif-Ax:Th}Mtr&#39;), EpicsMotor(name=&#39;delta&#39;, record=&#39;XF:23ID1-ES{Dif-Ax:Del}Mtr&#39;), EpicsMotor(name=&#39;gamma&#39;, record=&#39;XF:23ID1-ES{Dif-Ax:Gam}Mtr&#39;), EpicsMotor(name=&#39;sx&#39;, record=&#39;XF:23ID1-ES{Dif-Ax:X}Mtr&#39;), PVPositioner(name=&#39;sy&#39;, setpoint=&#39;XF:23ID1-ES{Dif-Ax:SY}Pos-SP&#39;, readback=&#39;XF:23ID1-ES{Dif-Ax:SY}Pos-RB&#39;, stop=&#39;XF:23ID1-ES{Dif-Cryo}Cmd:Stop-Cmd&#39;, stop_val=1, put_complete=True, settle_time=0.05, limits=(0, 0)), PVPositioner(name=&#39;sz&#39;, setpoint=&#39;XF:23ID1-ES{Dif-Ax:SZ}Pos-SP&#39;, readback=&#39;XF:23ID1-ES{Dif-Ax:SZ}Pos-RB&#39;, stop=&#39;XF:23ID1-ES{Dif-Cryo}Cmd:Stop-Cmd&#39;, stop_val=1, put_complete=True, settle_time=0.05, limits=(0, 0)), EpicsMotor(name=&#39;say&#39;, record=&#39;XF:23ID1-ES{Dif-Ax:Y}Mtr&#39;), EpicsMotor(name=&#39;saz&#39;, record=&#39;XF:23ID1-ES{Dif-Ax:Z}Mtr&#39;), EpicsSignal(name=&#39;temp_a&#39;, read_pv=&#39;XF:23ID1-ES{TCtrl:1-Chan:A}T-I&#39;, rw=False, string=False, limits=False, put_complete=False, pv_kw={}, auto_monitor=None), EpicsSignal(name=&#39;temp_b&#39;, read_pv=&#39;XF:23ID1-ES{TCtrl:1-Chan:B}T-I&#39;, rw=False, string=False, limits=False, put_complete=False, pv_kw={}, auto_monitor=None), PVPositioner(name=&#39;pgm_energy&#39;, setpoint=&#39;XF:23ID1-OP{Mono}Enrgy-SP&#39;, readback=&#39;XF:23ID1-OP{Mono}Enrgy-I&#39;, stop=&#39;XF:23ID1-OP{Mono}Cmd:Stop-Cmd&#39;, stop_val=1, put_complete=True, settle_time=0.05, limits=(200, 2200)), PVPositioner(name=&#39;epu1_gap&#39;, setpoint=&#39;XF:23ID-ID{EPU:1-Ax:Gap}Pos-SP&#39;, readback=&#39;XF:23ID-ID{EPU:1-Ax:Gap}Pos-I&#39;, stop=&#39;SR:C23-ID:G1A{EPU:1-Ax:Gap}-Mtr.STOP&#39;, stop_val=1, put_complete=True, settle_time=0.05, limits=(0, 0)), PVPositioner(name=&#39;epu1_phase&#39;, setpoint=&#39;XF:23ID-ID{EPU:1-Ax:Phase}Pos-SP&#39;, readback=&#39;XF:23ID-ID{EPU:1-Ax:Phase}Pos-I&#39;, stop=&#39;SR:C23-ID:G1A{EPU:1-Ax:Phase}-Mtr.STOP&#39;, stop_val=1, put_complete=True, settle_time=0.05, limits=(0, 0)), PVPositioner(name=&#39;epu2_gap&#39;, setpoint=&#39;XF:23ID-ID{EPU:2-Ax:Gap}Pos-SP&#39;, readback=&#39;XF:23ID-ID{EPU:2-Ax:Gap}Pos-I&#39;, stop=&#39;SR:C23-ID:G1A{EPU:2-Ax:Gap}-Mtr.STOP&#39;, stop_val=1, put_complete=True, settle_time=0.05, limits=(0, 0)), PVPositioner(name=&#39;epu2_phase&#39;, setpoint=&#39;XF:23ID-ID{EPU:2-Ax:Phase}Pos-SP&#39;, readback=&#39;XF:23ID-ID{EPU:2-Ax:Phase}Pos-I&#39;, stop=&#39;SR:C23-ID:G1A{EPU:2-Ax:Phase}-Mtr.STOP&#39;, stop_val=1, put_complete=True, settle_time=0.05, limits=(0, 0)), EpicsMotor(name=&#39;eta&#39;, record=&#39;XF:23ID1-ES{Diag:1-Ax:Eta}Mtr&#39;), EpicsMotor(name=&#39;slt1_xc&#39;, record=&#39;XF:23ID1-OP{Slt:1-Ax:XCtr}Mtr&#39;), EpicsMotor(name=&#39;slt1_xg&#39;, record=&#39;XF:23ID1-OP{Slt:1-Ax:XGap}Mtr&#39;), EpicsMotor(name=&#39;slt1_yc&#39;, record=&#39;XF:23ID1-OP{Slt:1-Ax:YCtr}Mtr&#39;), EpicsMotor(name=&#39;slt1_yg&#39;, record=&#39;XF:23ID1-OP{Slt:1-Ax:YGap}Mtr&#39;), EpicsMotor(name=&#39;slt2_xc&#39;, record=&#39;XF:23ID1-OP{Slt:2-Ax:XCtr}Mtr&#39;), EpicsMotor(name=&#39;slt2_xg&#39;, record=&#39;XF:23ID1-OP{Slt:2-Ax:XGap}Mtr&#39;), EpicsMotor(name=&#39;slt2_yc&#39;, record=&#39;XF:23ID1-OP{Slt:2-Ax:YCtr}Mtr&#39;), EpicsMotor(name=&#39;slt2_yg&#39;, record=&#39;XF:23ID1-OP{Slt:2-Ax:YGap}Mtr&#39;), EpicsMotor(name=&#39;slt3_x&#39;, record=&#39;XF:23ID1-OP{Slt:3-Ax:X}Mtr&#39;), EpicsMotor(name=&#39;slt3_y&#39;, record=&#39;XF:23ID1-OP{Slt:3-Ax:Y}Mtr&#39;), EpicsSignal(name=&#39;ring_curr&#39;, read_pv=&#39;XF:23ID-SR{}I-I&#39;, rw=False, string=False, limits=False, put_complete=False, pv_kw={}, auto_monitor=None), EpicsMotor(name=&#39;npbx&#39;, record=&#39;XF:23ID1-ES{Dif:Lens-Ax:BtmX}Mtr&#39;), EpicsMotor(name=&#39;npby&#39;, record=&#39;XF:23ID1-ES{Dif:Lens-Ax:BtmY}Mtr&#39;), EpicsMotor(name=&#39;npbz&#39;, record=&#39;XF:23ID1-ES{Dif:Lens-Ax:BtmZ}Mtr&#39;), EpicsMotor(name=&#39;nptx&#39;, record=&#39;XF:23ID1-ES{Dif:Lens-Ax:TopX}Mtr&#39;), EpicsMotor(name=&#39;npty&#39;, record=&#39;XF:23ID1-ES{Dif:Lens-Ax:TopY}Mtr&#39;), EpicsMotor(name=&#39;nptz&#39;, record=&#39;XF:23ID1-ES{Dif:Lens-Ax:TopZ}Mtr&#39;), EpicsScaler(name=&#39;sclr&#39;, record=&#39;XF:23ID1-ES{Sclr:1}&#39;, numchan=8), AreaDetectorFileStoreHDF5(name=&#39;fccd&#39;, basename=&#39;XF:23ID1-ES{FCCD}&#39;, stats=[1, 2, 3, 4, 5], shutter=None, shutter_rb=None, shutter_val=None, file_path=&#39;/GPFS/xf23id/xf23id1/fccd_data/&#39;, ioc_file_path=None)]
+    num             : 1
   scan_id         : 52440
   scan_type       : Count
   time            : 1445472516.9860468
@@ -248,52 +248,52 @@ from matplotlib import pyplot as plt
     <tr style="text-align: right;">
       <th></th>
       <th>time</th>
-      <th>saz</th>
-      <th>sclr_chan2</th>
-      <th>sx</th>
-      <th>slt2_yg</th>
       <th>sclr_chan4</th>
-      <th>temp_a</th>
-      <th>fccd_stats_total5</th>
-      <th>sclr_chan7</th>
-      <th>slt1_xg</th>
-      <th>...</th>
-      <th>slt1_xc</th>
-      <th>fccd_image_lightfield</th>
-      <th>sclr_chan8</th>
-      <th>fccd_stats_total3</th>
-      <th>slt1_yg</th>
       <th>epu2_gap</th>
-      <th>temp_b</th>
-      <th>gamma</th>
-      <th>fccd_acquire_period</th>
+      <th>delta</th>
+      <th>slt2_yc</th>
+      <th>sx</th>
+      <th>fccd_stats_total3</th>
+      <th>pgm_energy</th>
+      <th>temp_a</th>
+      <th>fccd_image_lightfield</th>
+      <th>...</th>
+      <th>sclr_chan8</th>
+      <th>npty</th>
+      <th>epu1_phase</th>
+      <th>slt2_yg</th>
+      <th>saz</th>
       <th>nptx</th>
+      <th>fccd_stats_total4</th>
+      <th>slt1_yc</th>
+      <th>ring_curr</th>
+      <th>sclr_chan7</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>1</th>
       <td>2015-10-22 00:10:38.185091-04:00</td>
-      <td>4.175332</td>
-      <td>424111</td>
-      <td>6.899999</td>
-      <td>-1.776357e-15</td>
       <td>2122834</td>
-      <td>0</td>
-      <td>3232285349</td>
-      <td>0</td>
-      <td>6.9994</td>
-      <td>...</td>
-      <td>0.2046</td>
-      <td>7180b59d-5112-428e-b6a4-9bc8893220b0</td>
-      <td>0</td>
-      <td>86706314</td>
-      <td>7.0003</td>
       <td>31.020917</td>
+      <td>38.999985</td>
+      <td>-5.0001</td>
+      <td>6.899999</td>
+      <td>86706314</td>
+      <td>929.897551</td>
       <td>0</td>
-      <td>-1.000007</td>
-      <td>1</td>
+      <td>7180b59d-5112-428e-b6a4-9bc8893220b0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>-26.662465</td>
+      <td>-0.000045</td>
+      <td>-1.776357e-15</td>
+      <td>4.175332</td>
       <td>-1.79327</td>
+      <td>50712759</td>
+      <td>-0.3004</td>
+      <td>150.056366</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
@@ -311,52 +311,52 @@ from matplotlib import pyplot as plt
     <tr style="text-align: right;">
       <th></th>
       <th>time</th>
-      <th>saz</th>
-      <th>sclr_chan2</th>
-      <th>sx</th>
-      <th>slt2_yg</th>
       <th>sclr_chan4</th>
-      <th>temp_a</th>
-      <th>fccd_stats_total5</th>
-      <th>sclr_chan7</th>
-      <th>slt1_xg</th>
-      <th>...</th>
-      <th>slt1_xc</th>
-      <th>fccd_image_lightfield</th>
-      <th>sclr_chan8</th>
-      <th>fccd_stats_total3</th>
-      <th>slt1_yg</th>
       <th>epu2_gap</th>
-      <th>temp_b</th>
-      <th>gamma</th>
-      <th>fccd_acquire_period</th>
+      <th>delta</th>
+      <th>slt2_yc</th>
+      <th>sx</th>
+      <th>fccd_stats_total3</th>
+      <th>pgm_energy</th>
+      <th>temp_a</th>
+      <th>fccd_image_lightfield</th>
+      <th>...</th>
+      <th>sclr_chan8</th>
+      <th>npty</th>
+      <th>epu1_phase</th>
+      <th>slt2_yg</th>
+      <th>saz</th>
       <th>nptx</th>
+      <th>fccd_stats_total4</th>
+      <th>slt1_yc</th>
+      <th>ring_curr</th>
+      <th>sclr_chan7</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>1</th>
       <td>2015-10-21 23:59:54.531477-04:00</td>
-      <td>4.175332</td>
-      <td>424836</td>
-      <td>6.899999</td>
-      <td>-1.776357e-15</td>
       <td>2128440</td>
-      <td>0</td>
-      <td>3234474684</td>
-      <td>0</td>
-      <td>6.9994</td>
-      <td>...</td>
-      <td>0.2046</td>
-      <td>20eed5d8-05e2-4b0e-bd3c-5edae7b15878</td>
-      <td>0</td>
-      <td>86779381</td>
-      <td>7.0003</td>
       <td>31.020912</td>
+      <td>38.999985</td>
+      <td>-5.0001</td>
+      <td>6.899999</td>
+      <td>86779381</td>
+      <td>929.879892</td>
       <td>0</td>
-      <td>-1.000007</td>
-      <td>1</td>
+      <td>20eed5d8-05e2-4b0e-bd3c-5edae7b15878</td>
+      <td>...</td>
+      <td>0</td>
+      <td>-26.66246</td>
+      <td>-0.000045</td>
+      <td>-1.776357e-15</td>
+      <td>4.175332</td>
       <td>-1.79326</td>
+      <td>50762635</td>
+      <td>-0.3004</td>
+      <td>150.018917</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
@@ -371,18 +371,18 @@ data, or from the darkfield entry</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="n">images</span> <span class="o">=</span> <span class="n">get_fastccd_images</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="n">bgnd</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span> <span class="n">tag</span><span class="o">=</span><span class="s">&#39;fccd_image_lightfield&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre>INFO:csxtools.utils:Took 15.083 to read data using get_images
+<div class="highlight-python"><div class="highlight"><pre>INFO:csxtools.utils:Took 5.603 seconds to read data using get_images
 INFO:csxtools.fastccd.images:Correcting image stack of shape (1, 1200, 960, 960)
 INFO:csxtools.fastccd.images:Not correcting for darkfield. No input.
 INFO:csxtools.fastccd.images:Not correcting for flatfield. No input.
-INFO:csxtools.fastccd.images:Corrected image stack in 0.668
+INFO:csxtools.fastccd.images:Corrected image stack in 0.717 seconds
 WARNING:csxtools.utils:Missing dark image for gain setting 1
 WARNING:csxtools.utils:Missing dark image for gain setting 2
-INFO:csxtools.utils:Computed dark images in 59.784
-INFO:csxtools.utils:Took 9.062 to read data using get_images
+INFO:csxtools.utils:Computed dark images in 41.408 seconds
+INFO:csxtools.utils:Took 8.737 seconds to read data using get_images
 INFO:csxtools.fastccd.images:Correcting image stack of shape (1, 1200, 960, 960)
 INFO:csxtools.fastccd.images:Not correcting for flatfield. No input.
-INFO:csxtools.fastccd.images:Corrected image stack in 0.698
+INFO:csxtools.fastccd.images:Corrected image stack in 0.733 seconds
 </pre></div>
 </div>
 </div>
@@ -408,7 +408,7 @@ INFO:csxtools.fastccd.images:Corrected image stack in 0.698
 <span class="n">csxtools</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="s">&#39;0.1.0+2.g05d2a9b.dirty&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="s">&#39;0.1.0+3.g871beb3.dirty&#39;</span>
 </pre></div>
 </div>
 </div>
