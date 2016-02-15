@@ -1,4 +1,4 @@
 Example Notebooks
 =================
 
-.. download:`Run the fastccd <Correct_FastCCD_Images.html>`
+`Example of how to process fastccd data <Correct_FastCCD_Images.html>`_
