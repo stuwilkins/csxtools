@@ -3,5 +3,3 @@ Example Notebooks
 
 Link to file :download:`Notebook <Correct_FastCCD_Images.html>`
 
-.. raw:: html
-    :file: Correct_FastCCD_Images.html
