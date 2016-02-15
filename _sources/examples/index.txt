@@ -1,12 +1,4 @@
 Example Notebooks
 =================
 
-Contents
---------
-
-.. toctree::
-   :maxdepth: 2
-   :glob:
-
-   *
-
+.. download:`Run the fastccd <Correct_FastCCD_Images.html>`
