@@ -1,5 +1,5 @@
 Example Notebooks
 =================
 
-.. raw::html
-    .. include:: Correct_FastCCD_Images.html
+.. raw:: html
+    :file: Correct_FastCCD_Images.html
