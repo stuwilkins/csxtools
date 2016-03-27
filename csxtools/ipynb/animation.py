@@ -6,8 +6,8 @@ from tempfile import NamedTemporaryFile
 import base64
 
 
-def show_image_stack(images, minmax, fontsize=18, cmap='CMRmap',
-                     zlabel=r'Intensty [ADU]', figsize=(12, 10)):
+def show_image_stack(images, minmax, cmap='CMRmap',
+                     zlabel=r'Intensty [ADU]', figsize=(10, 8)):
     """Show an Interactive Image Stack in an IPython Notebook
 
     Parameters
@@ -18,8 +18,6 @@ def show_image_stack(images, minmax, fontsize=18, cmap='CMRmap',
     minmax : tuple
         Value for the minimum and maximum of the stack in the form
         ``(min, max)``
-    fontsize : int
-        Fontsize for axis labels.
     cmap : string
         Colormap to use for image (from matplotlib)
     zlabel : string
@@ -29,30 +27,43 @@ def show_image_stack(images, minmax, fontsize=18, cmap='CMRmap',
 
 
     """
-    n = images.shape[0]
+    fig = plt.figure(figsize=figsize)
+    ax = fig.add_subplot(111)
+    im_range = (0, images.shape[0] - 1)
+
+    im = ax.imshow(images[0], cmap=cmap, interpolation='none',
+                   vmin=minmax[0], vmax=minmax[1])
+
+    cbar = fig.colorbar(im)
+    cbar.ax.tick_params(labelsize=16)
+    cbar.set_label(zlabel, size=16, weight='bold')
+
+    ax.set_title('Frame {} Min = {} Max = {}'.format(0, minmax[0], minmax[1]),
+                 fontsize=16, fontweight='bold')
+
+    for item in ([ax.xaxis.label, ax.yaxis.label] +
+                 ax.get_xticklabels() + ax.get_yticklabels()):
+        item.set_fontsize(16)
+        item.set_fontweight('bold')
+
+    return (fig, ax, im, images, im_range, minmax)
+
+
+def browse_stack(plt):
+
+    ax = plt[1]
+    img = plt[2]
+    images = plt[3]
+    im_range = plt[4]
+    minmax = plt[5]
 
     def view_frame(i, vmin, vmax):
-        fig = plt.figure(figsize=figsize)
-        ax = fig.add_subplot(111)
-
-        im = ax.imshow(images[i], cmap=cmap, interpolation='none',
-                       vmin=vmin, vmax=vmax)
-
-        cbar = fig.colorbar(im)
-        cbar.ax.tick_params(labelsize=fontsize)
-        cbar.set_label(zlabel, size=fontsize, weight='bold')
-
+        img.set_data(images[i])
         ax.set_title('Frame {} Min = {} Max = {}'.format(i, vmin, vmax),
-                     fontsize=fontsize, fontweight='bold')
+                     fontsize=16, fontweight='bold')
+        img.set_clim(vmin=vmin, vmax=vmax)
 
-        for item in ([ax.xaxis.label, ax.yaxis.label] +
-                     ax.get_xticklabels() + ax.get_yticklabels()):
-            item.set_fontsize(fontsize)
-            item.set_fontweight('bold')
-
-        plt.show()
-
-    interact(view_frame, i=(0, n-1), vmin=minmax, vmax=minmax)
+    interact(view_frame, i=im_range, vmin=minmax, vmax=minmax)
 
 
 def image_stack_to_movie(images, frames=None, vmin=None, vmax=None,
